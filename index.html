@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Market Insights | Kannada Trading Community</title>
+
+  <meta name="description"
+    content="Kannada stock market community with NIFTY, BANKNIFTY and stock market technical analysis and educational insights.">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:
+        Arial,
+        "Noto Sans Kannada",
+        sans-serif;
+
+      background:#05070b;
+      color:#ffffff;
+      overflow-x:hidden;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* =====================================
+       BACKGROUND GLOW
+    ===================================== */
+
+    body::before{
+      content:"";
+      position:fixed;
+      width:420px;
+      height:420px;
+      left:-180px;
+      top:-140px;
+
+      background:#00ff9d;
+      filter:blur(170px);
+      opacity:.10;
+
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      width:420px;
+      height:420px;
+      right:-190px;
+      bottom:-170px;
+
+      background:#246bff;
+      filter:blur(180px);
+      opacity:.11;
+
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    .container{
+      width:min(92%,1100px);
+      margin:auto;
+    }
+
+    /* =====================================
+       HERO
+    ===================================== */
+
+    .hero{
+      min-height:100vh;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      text-align:center;
+
+      padding:
+        55px 0
+        50px;
+
+      position:relative;
+    }
+
+    .hero-content{
+      width:100%;
+      max-width:850px;
+      margin:auto;
+    }
+
+    /* LOGO */
+
+    .logo-wrap{
+      display:flex;
+      justify-content:center;
+      margin-bottom:24px;
+    }
+
+    .logo{
+      width:96px;
+      height:96px;
+
+      object-fit:cover;
+
+      border-radius:24px;
+
+      border:1px solid
+        rgba(255,255,255,.20);
+
+      box-shadow:
+        0 0 40px
+        rgba(0,255,157,.18),
+
+        0 18px 45px
+        rgba(0,0,0,.45);
+
+      animation:
+        logoFloat 4s
+        ease-in-out
+        infinite;
+    }
+
+    @keyframes logoFloat{
+
+      0%,100%{
+        transform:translateY(0);
+      }
+
+      50%{
+        transform:translateY(-7px);
+      }
+    }
+
+    /* BADGE */
+
+    .badge{
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      gap:8px;
+
+      padding:
+        9px 16px;
+
+      border-radius:50px;
+
+      background:
+        rgba(0,255,157,.07);
+
+      border:
+        1px solid
+        rgba(0,255,157,.24);
+
+      color:#7dffc8;
+
+      font-size:13px;
+
+      margin-bottom:23px;
+    }
+
+    .dot{
+      width:7px;
+      height:7px;
+
+      background:#00ff9d;
+
+      border-radius:50%;
+
+      box-shadow:
+        0 0 13px
+        #00ff9d;
+    }
+
+    /* HEADLINE */
+
+    h1{
+      font-size:
+        clamp(40px,8vw,76px);
+
+      line-height:1.04;
+
+      font-weight:900;
+
+      letter-spacing:-2px;
+    }
+
+    .gradient{
+      background:
+        linear-gradient(
+          90deg,
+          #ffffff,
+          #7dffc8,
+          #5fa5ff
+        );
+
+      -webkit-background-clip:text;
+
+      background-clip:text;
+
+      color:transparent;
+    }
+
+    /* HERO TEXT */
+
+    .hero-text{
+      max-width:680px;
+
+      margin:
+        24px auto 0;
+
+      color:#aeb6c5;
+
+      font-size:17px;
+
+      line-height:1.75;
+    }
+
+    /* CTA */
+
+    .cta{
+      display:inline-flex;
+
+      align-items:center;
+      justify-content:center;
+
+      gap:10px;
+
+      min-height:54px;
+
+      padding:
+        16px 30px;
+
+      margin-top:27px;
+
+      text-decoration:none;
+
+      color:#001b12;
+
+      background:#00ff9d;
+
+      font-size:15px;
+
+      font-weight:800;
+
+      border-radius:15px;
+
+      box-shadow:
+        0 0 35px
+        rgba(0,255,157,.22);
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .cta:hover{
+      transform:
+        translateY(-4px)
+        scale(1.02);
+
+      box-shadow:
+        0 0 50px
+        rgba(0,255,157,.38);
+    }
+
+    .cta:active{
+      transform:scale(.97);
+    }
+
+    .small-note{
+      margin-top:15px;
+
+      color:#737c8b;
+
+      font-size:12px;
+    }
+
+    /* =====================================
+       TRUST BAR
+    ===================================== */
+
+    .trust{
+      padding:20px 0 80px;
+    }
+
+    .trust-box{
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap:12px;
+
+      padding:15px;
+
+      border-radius:20px;
+
+      background:
+        rgba(255,255,255,.025);
+
+      border:
+        1px solid
+        rgba(255,255,255,.07);
+
+      backdrop-filter:blur(15px);
+    }
+
+    .trust-item{
+      text-align:center;
+
+      padding:15px 8px;
+
+      color:#a5adbb;
+
+      font-size:13px;
+    }
+
+    .trust-item strong{
+      display:block;
+
+      color:#ffffff;
+
+      font-size:18px;
+
+      margin-bottom:5px;
+    }
+
+    /* =====================================
+       SECTION
+    ===================================== */
+
+    .section{
+      padding:85px 0;
+    }
+
+    .section-title{
+      text-align:center;
+
+      font-size:
+        clamp(29px,5vw,46px);
+
+      font-weight:900;
+
+      letter-spacing:-1px;
+    }
+
+    .section-sub{
+      text-align:center;
+
+      max-width:650px;
+
+      margin:
+        15px auto 42px;
+
+      color:#8f98a8;
+
+      line-height:1.7;
+
+      font-size:15px;
+    }
+
+    /* =====================================
+       CARDS
+    ===================================== */
+
+    .grid{
+      display:grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap:18px;
+    }
+
+    .card{
+      position:relative;
+
+      padding:29px;
+
+      min-height:220px;
+
+      border-radius:23px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.075),
+          rgba(255,255,255,.022)
+        );
+
+      border:
+        1px solid
+        rgba(255,255,255,.09);
+
+      backdrop-filter:
+        blur(16px);
+
+      transition:
+        transform .35s ease,
+        border-color .35s ease,
+        background .35s ease;
+    }
+
+    .card:hover{
+      transform:
+        translateY(-8px);
+
+      border-color:
+        rgba(0,255,157,.30);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(0,255,157,.08),
+          rgba(255,255,255,.025)
+        );
+    }
+
+    .icon{
+      width:52px;
+      height:52px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:15px;
+
+      background:
+        rgba(0,255,157,.08);
+
+      border:
+        1px solid
+        rgba(0,255,157,.15);
+
+      font-size:25px;
+
+      margin-bottom:19px;
+    }
+
+    .card h3{
+      font-size:20px;
+
+      margin-bottom:10px;
+    }
+
+    .card p{
+      color:#929baa;
+
+      font-size:14px;
+
+      line-height:1.7;
+    }
+
+    /* =====================================
+       HIGHLIGHT
+    ===================================== */
+
+    .highlight{
+      position:relative;
+
+      padding:40px 28px;
+
+      border-radius:27px;
+
+      text-align:center;
+
+      overflow:hidden;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0,255,157,.12),
+          rgba(45,93,255,.08)
+        );
+
+      border:
+        1px solid
+        rgba(0,255,157,.16);
+    }
+
+    .highlight::before{
+      content:"";
+
+      position:absolute;
+
+      width:180px;
+      height:180px;
+
+      left:50%;
+      top:-100px;
+
+      transform:
+        translateX(-50%);
+
+      background:#00ff9d;
+
+      filter:blur(100px);
+
+      opacity:.10;
+    }
+
+    .highlight h2{
+      position:relative;
+
+      font-size:
+        clamp(25px,5vw,34px);
+
+      margin-bottom:13px;
+    }
+
+    .highlight p{
+      position:relative;
+
+      max-width:650px;
+
+      margin:auto;
+
+      color:#aab2c0;
+
+      line-height:1.75;
+
+      font-size:14px;
+    }
+
+    /* =====================================
+       FINAL CTA
+    ===================================== */
+
+    .final{
+      text-align:center;
+
+      padding:
+        100px 0 75px;
+    }
+
+    .final h2{
+      font-size:
+        clamp(32px,6vw,54px);
+
+      line-height:1.08;
+
+      letter-spacing:-1.5px;
+    }
+
+    .final p{
+      max-width:600px;
+
+      margin:
+        18px auto 0;
+
+      color:#949dac;
+
+      line-height:1.75;
+
+      font-size:15px;
+    }
+
+    /* =====================================
+       DISCLAIMER
+    ===================================== */
+
+    .disclaimer{
+      border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+      padding:
+        27px 0 42px;
+
+      text-align:center;
+
+      color:#687180;
+
+      font-size:11px;
+
+      line-height:1.8;
+    }
+
+    /* =====================================
+       ANIMATION
+    ===================================== */
+
+    .reveal{
+      animation:
+        reveal .9s
+        cubic-bezier(.22,1,.36,1)
+        both;
+    }
+
+    @keyframes reveal{
+
+      from{
+        opacity:0;
+
+        transform:
+          translateY(25px);
+      }
+
+      to{
+        opacity:1;
+
+        transform:
+          translateY(0);
+      }
+    }
+
+    /* =====================================
+       MOBILE
+    ===================================== */
+
+    @media(max-width:700px){
+
+      .container{
+        width:90%;
+      }
+
+      .hero{
+        min-height:92vh;
+
+        padding:
+          42px 0;
+      }
+
+      .logo{
+        width:88px;
+        height:88px;
+
+        border-radius:21px;
+      }
+
+      h1{
+        font-size:
+          clamp(38px,11vw,56px);
+
+        letter-spacing:-1.5px;
+      }
+
+      .hero-text{
+        font-size:15px;
+
+        line-height:1.7;
+      }
+
+      .cta{
+        width:100%;
+
+        max-width:360px;
+      }
+
+      .trust{
+        padding-bottom:60px;
+      }
+
+      .trust-box{
+        grid-template-columns:
+          1fr 1fr 1fr;
+
+        padding:8px;
+      }
+
+      .trust-item{
+        font-size:11px;
+      }
+
+      .trust-item strong{
+        font-size:15px;
+      }
+
+      .section{
+        padding:65px 0;
+      }
+
+      .section-sub{
+        font-size:14px;
+      }
+
+      .grid{
+        grid-template-columns:1fr;
+
+        gap:14px;
+      }
+
+      .card{
+        min-height:auto;
+
+        padding:25px;
+      }
+
+      .highlight{
+        padding:
+          34px 21px;
+      }
+
+      .final{
+        padding:
+          80px 0 60px;
+      }
+
+      .final p{
+        font-size:14px;
+      }
+    }
+
+    /* VERY SMALL MOBILE */
+
+    @media(max-width:380px){
+
+      .trust-item strong{
+        font-size:14px;
+      }
+
+      .trust-item{
+        padding:
+          12px 3px;
+      }
+
+      .badge{
+        font-size:11px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<section class="hero">
+
+  <div class="container">
+
+    <div class="hero-content reveal">
+
+
+      <!-- LOGO -->
+
+      <div class="logo-wrap">
+
+        <img
+          src="https://i.ibb.co/xKCg9ySH/IMG-20261005-224626.jpg"
+          alt="Market Insights Logo"
+          class="logo"
+        >
+
+      </div>
+
+
+      <!-- BADGE -->
+
+      <div class="badge">
+
+        <span class="dot"></span>
+
+        ಕನ್ನಡ Stock Market Community
+
+      </div>
+
+
+      <!-- HEADLINE -->
+
+      <h1>
+
+        ಮಾರುಕಟ್ಟೆಯನ್ನು<br>
+
+        <span class="gradient">
+          ಚೆನ್ನಾಗಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.
+        </span>
+
+      </h1>
+
+
+      <!-- DESCRIPTION -->
+
+      <p class="hero-text">
+
+        NIFTY, BANKNIFTY ಮತ್ತು ಪ್ರಮುಖ ಸ್ಟಾಕ್‌ಗಳ
+        ಕುರಿತು Technical Analysis, Market Insights
+        ಮತ್ತು Educational Updates ಅನ್ನು ಸರಳ ಕನ್ನಡದಲ್ಲಿ ಪಡೆಯಿರಿ.
+
+      </p>
+
+
+      <!-- CTA -->
+
+      <a
+        href="https://t.me/YOUR_CHANNEL"
+        class="cta"
+        target="_blank"
+        rel="noopener"
+      >
+
+        🚀 ನಮ್ಮ Telegram Channel ಸೇರಿ
+
+      </a>
+
+
+      <div class="small-note">
+
+        ಉಚಿತ Market Updates • Educational Content • Kannada
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================
+     TRUST
+===================================== -->
+
+<section class="trust">
+
+  <div class="container">
+
+    <div class="trust-box">
+
+
+      <div class="trust-item">
+
+        <strong>📊</strong>
+
+        Technical Analysis
+
+      </div>
+
+
+      <div class="trust-item">
+
+        <strong>📈</strong>
+
+        Market Insights
+
+      </div>
+
+
+      <div class="trust-item">
+
+        <strong>🇮🇳</strong>
+
+        Kannada Community
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FEATURES
+===================================== -->
+
+<section class="section">
+
+  <div class="container">
+
+
+    <h2 class="section-title">
+
+      ನಿಮಗೆ ಏನು ಸಿಗುತ್ತದೆ?
+
+    </h2>
+
+
+    <p class="section-sub">
+
+      ಮಾರುಕಟ್ಟೆಯನ್ನು ಉತ್ತಮವಾಗಿ ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು
+      ಉಪಯುಕ್ತವಾದ educational content ಮತ್ತು
+      technical market observations.
+
+    </p>
+
+
+    <div class="grid">
+
+
+      <!-- CARD 1 -->
+
+      <div class="card">
+
+        <div class="icon">
+          📊
+        </div>
+
+        <h3>
+          Technical Analysis
+        </h3>
+
+        <p>
+
+          Charts, trends ಮತ್ತು ಪ್ರಮುಖ market levels
+          ಕುರಿತು ಸರಳವಾದ technical analysis.
+
+        </p>
+
+      </div>
+
+
+      <!-- CARD 2 -->
+
+      <div class="card">
+
+        <div class="icon">
+          📈
+        </div>
+
+        <h3>
+          NIFTY & BANKNIFTY
+        </h3>
+
+        <p>
+
+          ಪ್ರಮುಖ indices‌ಗಳ market movement ಮತ್ತು
+          technical observations ಕುರಿತು updates.
+
+        </p>
+
+      </div>
+
+
+      <!-- CARD 3 -->
+
+      <div class="card">
+
+        <div class="icon">
+          💡
+        </div>
+
+        <h3>
+          Market Insights
+        </h3>
+
+        <p>
+
+          Market concepts ಮತ್ತು trading-related
+          educational information ಅನ್ನು ಕನ್ನಡದಲ್ಲಿ.
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================
+     HIGHLIGHT
+===================================== -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="highlight">
+
+      <h2>
+        📚 ಕಲಿಯಿರಿ • ವಿಶ್ಲೇಷಿಸಿ • ನಿರ್ಧರಿಸಿ
+      </h2>
+
+      <p>
+
+        ನಮ್ಮ content ಅನ್ನು market education ಮತ್ತು
+        analysis ಉದ್ದೇಶಕ್ಕಾಗಿ ನೀಡಲಾಗುತ್ತದೆ.
+        ಯಾವುದೇ guaranteed return ಅಥವಾ profit promise ಇಲ್ಲ.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================
+     FINAL CTA
+===================================== -->
+
+<section class="final">
+
+  <div class="container">
+
+
+    <h2>
+
+      ಇಂದೇ ನಮ್ಮ<br>
+
+      <span class="gradient">
+        Kannada Community
+      </span>
+
+      ಸೇರಿ
+
+    </h2>
+
+
+    <p>
+
+      Market updates ಮತ್ತು educational insights
+      ಪಡೆಯಲು ನಮ್ಮ Telegram channel ಗೆ join ಆಗಿ.
+
+    </p>
+
+
+    <a
+      href="https://t.me/YOUR_CHANNEL"
+      class="cta"
+      target="_blank"
+      rel="noopener"
+    >
+
+      ✨ Join Telegram
+
+    </a>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================
+     DISCLAIMER
+===================================== -->
+
+<footer class="disclaimer">
+
+  <div class="container">
+
+    ⚠️ Disclaimer:
+    ಈ website/channel ನೀಡುವ ಮಾಹಿತಿಯು
+    ಕೇವಲ educational ಮತ್ತು informational purposes‌ಗಾಗಿ.
+    ಇದು ಯಾವುದೇ investment advice ಅಥವಾ guaranteed return
+    offer ಅಲ್ಲ. Stock market ಮತ್ತು derivatives trading ನಲ್ಲಿ
+    market risk ಇರುತ್ತದೆ.
+
+    <br><br>
+
+    ಯಾವುದೇ ನಿರ್ಧಾರ ತೆಗೆದುಕೊಳ್ಳುವ ಮೊದಲು
+    ಸ್ವತಂತ್ರವಾಗಿ research ಮಾಡಿ ಮತ್ತು ಅಗತ್ಯವಿದ್ದರೆ
+    SEBI-registered professional ಅನ್ನು ಸಂಪರ್ಕಿಸಿ.
+
+  </div>
+
+</footer>
+
+
+</body>
+</html>
